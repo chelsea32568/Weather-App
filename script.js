@@ -1,5 +1,16 @@
 // Search for a city and return the weather data for that city
+$("button").on("click", function (event) {
 
+// prevent default to stop the buttom from trying to submit another inut
+    event.preventDefault();
+
+// grab text from the input box
+    var location = $("#search-input").val();
+    console.log(location);
+
+// construct the URL
+    
+})
 // log the search history on the page
 // show the city name
 // show the date
