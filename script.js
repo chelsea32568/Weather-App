@@ -1,4 +1,5 @@
 // Search for a city and return the weather data for that city
+
 // log the search history on the page
 // show the city name
 // show the date
