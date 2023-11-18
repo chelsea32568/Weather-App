@@ -9,8 +9,15 @@ $("button").on("click", function (event) {
     console.log(location);
 
 // construct the URL
-var queryURL = "https://api.openweathermap.org/data/2.5/weather?" +
-"q=Bujumbura,Burundi&appid=" + APIKey;
+var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + location + "&appid=";
+
+fetch(queryURL)
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data) {
+        $("#search-input").text(JSON.stringify(data));
+    })
 })
 // log the search history on the page
 // show the city name
