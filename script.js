@@ -10,6 +10,7 @@ $("button").on("click", function (event) {
 
 // construct the URL
 var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + location + "&appid=";
+console.log(queryURL);
 
 fetch(queryURL)
     .then(function (response) {
@@ -18,7 +19,8 @@ fetch(queryURL)
     .then(function (data) {
         $("#search-input").text(JSON.stringify(data));
     })
-})
+    console.log(response);
+});
 // log the search history on the page
 // show the city name
 // show the date
