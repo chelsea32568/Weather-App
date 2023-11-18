@@ -11,7 +11,7 @@ $("#search-button").on("click", function (event) {
   var queryURL =
     "https://api.openweathermap.org/data/2.5/forecast?q=" +
     location +
-    "&units=metric&appid=249c195c4f8adef1883d23b14c215681";
+    "&units=metric&appid=";
   console.log(queryURL);
 
   fetch(queryURL)
