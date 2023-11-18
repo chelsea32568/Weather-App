@@ -1,27 +1,78 @@
 // Search for a city and return the weather data for that city
-$("button").on("click", function (event) {
+$("#search-button").on("click", function (event) {
+  // prevent default to stop the buttom from trying to submit another inut
+  event.preventDefault();
 
-// prevent default to stop the buttom from trying to submit another inut
-    event.preventDefault();
+  // grab text from the input box
+  var location = $("#search-input").val();
+  console.log(location);
 
-// grab text from the input box
-    var location = $("#search-input").val();
-    console.log(location);
+  // construct the URL
+  var queryURL =
+    "https://api.openweathermap.org/data/2.5/forecast?q=" +
+    location +
+    "&units=metric&appid=249c195c4f8adef1883d23b14c215681";
+  console.log(queryURL);
 
-// construct the URL
-var queryURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + location + "&appid=";
-console.log(queryURL);
-
-fetch(queryURL)
+  fetch(queryURL)
     .then(function (response) {
-        return response.json();
+      return response.json();
     })
     .then(function (data) {
-        $("#search-input").text(JSON.stringify(data));
+      console.log(data);
+      createButton(data.city.name);
+      displayCurrent(data);
+
+      $("#search-input").text(JSON.stringify(data));
     })
-    console.log(response);
+    .catch(function (error) {
+      console.log(error);
+    });
 });
-// log the search history on the page
+
+function displayCurrent(data) {
+  $("#currentName").text(data.city.name);
+  $("#currentDate").text(data.list[0].dt_txt);
+  $("#currentTemp").text(data.list[0].main.temp);
+  $("#currentWind").text(data.list[0].wind.speed);
+}
+
+// Function for displaying weather data
+function renderButtons() {
+  // Prevent button repeats
+  $("#buttons-view").empty();
+  // Loops through the array of locations
+  for (var i = 0; i < location.length; i++) {
+    // Generates buttons for each location in the array
+    var a = $("<button>");
+    // Adding a class of location to the button
+    a.addClass("location");
+    // Adding a data-attribute
+    a.attr("location-name", location[i]);
+    // Providing the initian button text
+    a.text(location[i]);
+    // Adding the button to the buttons-view div
+    $("#buttons-view").append(a);
+  }
+}
+
+function createButton(city) {
+  // Generates buttons for each location in the array
+  var a = $("<button>");
+  // Adding a class of location to the button
+  a.addClass("location");
+  // Adding a data-attribute
+  // a.attr("location-name", location[i]);
+  // Providing the initian button text
+  a.text(city);
+  // Adding the button to the buttons-view div
+  $("#buttons-view").append(a);
+}
+// // Function handles events where one button is clicked
+//     $(#add-location).on("click", function (event) {
+//         event.preventDefault();
+
+// })
 // show the city name
 // show the date
 // show icons of weather conditions
