@@ -37,25 +37,6 @@ function displayCurrent(data) {
   $("#currentWind").text(data.list[0].wind.speed);
 }
 
-// Function for displaying weather data
-function renderButtons() {
-  // Prevent button repeats
-  $("#buttons-view").empty();
-  // Loops through the array of locations
-  for (var i = 0; i < location.length; i++) {
-    // Generates buttons for each location in the array
-    var a = $("<button>");
-    // Adding a class of location to the button
-    a.addClass("location");
-    // Adding a data-attribute
-    a.attr("location-name", location[i]);
-    // Providing the initian button text
-    a.text(location[i]);
-    // Adding the button to the buttons-view div
-    $("#buttons-view").append(a);
-  }
-}
-
 function createButton(city) {
   // Generates buttons for each location in the array
   var a = $("<button>");
