@@ -11,7 +11,7 @@ $("#search-button").on("click", function (event) {
   var queryURL =
     "https://api.openweathermap.org/data/2.5/forecast?q=" +
     location +
-    "&units=metric&appid=";
+    "&units=metric&appid=249c195c4f8adef1883d23b14c215681";
   console.log(queryURL);
 
   fetch(queryURL)
@@ -37,14 +37,35 @@ function displayCurrent(data) {
   $("#currentTemp").text(data.list[0].main.temp);
   $("#currentHumidity").text(data.list[0].main.humidity);
   $("#currentWind").text(data.list[0].wind.speed);
+  // show the future weather for the next 5 days
+  // day 1
+  $("#oneDate").text(data.list[5].dt_txt);
+  $("#oneTemp").text(data.list[5].main.temp);
+  $("#oneWind").text(data.list[5].wind.speed);
+  $("#oneHumidity").text(data.list[5].main.humidity);
+  // day 2
+  $("#twoDate").text(data.list[13].dt_txt);
+  $("#twoTemp").text(data.list[13].main.temp);
+  $("#twoWind").text(data.list[13].wind.speed);
+  $("#oneHumidity").text(data.list[13].main.humidity);
+  // day 3
+  $("#threeDate").text(data.list[21].dt_txt);
+  $("#threeTemp").text(data.list[21].main.temp);
+  $("#threeWind").text(data.list[21].wind.speed);
+  $("#threeHumidity").text(data.list[21].main.humidity);
+  // day 4
+  $("#fourDate").text(data.list[29].dt_txt);
+  $("#fourTemp").text(data.list[29].main.temp);
+  $("#fourWind").text(data.list[29].wind.speed);
+  $("#fourHumidity").text(data.list[29].main.humidity);
+  // day 5
+  $("#fiveDate").text(data.list[37].dt_txt);
+  $("#fiveTemp").text(data.list[37].main.temp);
+  $("#fiveWind").text(data.list[37].wind.speed);
+  $("#fiveHumidity").text(data.list[37].main.humidity);
 }
 
-function display(data) {
-  $("#oneDate").text(data.list[1].dt_txt);
-  $("#oneTemp").text(data.list[1].main.temp);
-  $("#oneWind").text(data.list[1].wind.speed);
-  $("#oneHumidity").text(data.list[1].main.humidity);
-}
+
 function createButton(city) {
   // Generates buttons for each location in the array
   var a = $("<button>");
@@ -58,7 +79,7 @@ function createButton(city) {
   $("#buttons-view").append(a);
 }
 
-// show the future weather for the next 5 days
+
 
 
 // Click a previous search and the weather conditions will show
