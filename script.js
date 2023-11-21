@@ -33,12 +33,18 @@ $("#search-button").on("click", function (event) {
 function displayCurrent(data) {
   $("#currentName").text(data.city.name);
   $("#currentDate").text(data.list[0].dt_txt);
-  $("#currentIcon").text(data.list[0].weather[0].icon);
+  // $("#currentIcon").text(data.list[0].weather[0].icon);
   $("#currentTemp").text(data.list[0].main.temp);
   $("#currentHumidity").text(data.list[0].main.humidity);
   $("#currentWind").text(data.list[0].wind.speed);
 }
 
+function display(data) {
+  $("#oneDate").text(data.list[1].dt_txt);
+  $("#oneTemp").text(data.list[1].main.temp);
+  $("#oneWind").text(data.list[1].wind.speed);
+  $("#oneHumidity").text(data.list[1].main.humidity);
+}
 function createButton(city) {
   // Generates buttons for each location in the array
   var a = $("<button>");
@@ -52,18 +58,7 @@ function createButton(city) {
   $("#buttons-view").append(a);
 }
 
-// })
-// show the city name
-// show the date
-// show icons of weather conditions
-// show the temperature
-// show the humidity
-// show the wind speed
-
 // show the future weather for the next 5 days
-// show the next 5 dates
-// show the weather conditions with an icon for the next 5 days
-// show the temperature for the next 5 days
-// show the humidity for the next 5 days
+
 
 // Click a previous search and the weather conditions will show
