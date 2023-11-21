@@ -33,7 +33,9 @@ $("#search-button").on("click", function (event) {
 function displayCurrent(data) {
   $("#currentName").text(data.city.name);
   $("#currentDate").text(data.list[0].dt_txt);
+  $("#currentIcon").text(data.list[0].weather[0].icon);
   $("#currentTemp").text(data.list[0].main.temp);
+  $("#currentHumidity").text(data.list[0].main.humidity);
   $("#currentWind").text(data.list[0].wind.speed);
 }
 
@@ -49,9 +51,6 @@ function createButton(city) {
   // Adding the button to the buttons-view div
   $("#buttons-view").append(a);
 }
-// // Function handles events where one button is clicked
-//     $(#add-location).on("click", function (event) {
-//         event.preventDefault();
 
 // })
 // show the city name
