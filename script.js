@@ -32,39 +32,43 @@ $("#search-button").on("click", function (event) {
 
 function displayCurrent(data) {
   $("#currentName").text(data.city.name);
-  $("#currentDate").text(data.list[0].dt_txt);
-  // $("#currentIcon").text(data.list[0].weather[0].icon);
+  $("#currentDate").text(data.list[0].dt_txt.substr(0, 10));
+  $("#currentIcon").text(data.list[0].weather[0].icon);
   $("#currentTemp").text(data.list[0].main.temp);
   $("#currentHumidity").text(data.list[0].main.humidity);
   $("#currentWind").text(data.list[0].wind.speed);
+
   // show the future weather for the next 5 days
   // day 1
-  $("#oneDate").text(data.list[5].dt_txt);
+  $("#oneDate").text(data.list[5].dt_txt.substr(0, 10));
   $("#oneTemp").text(data.list[5].main.temp);
   $("#oneWind").text(data.list[5].wind.speed);
   $("#oneHumidity").text(data.list[5].main.humidity);
+
   // day 2
-  $("#twoDate").text(data.list[13].dt_txt);
+  $("#twoDate").text(data.list[13].dt_txt.substr(0, 10));
   $("#twoTemp").text(data.list[13].main.temp);
   $("#twoWind").text(data.list[13].wind.speed);
   $("#oneHumidity").text(data.list[13].main.humidity);
+
   // day 3
-  $("#threeDate").text(data.list[21].dt_txt);
+  $("#threeDate").text(data.list[21].dt_txt.substr(0, 10));
   $("#threeTemp").text(data.list[21].main.temp);
   $("#threeWind").text(data.list[21].wind.speed);
   $("#threeHumidity").text(data.list[21].main.humidity);
+
   // day 4
-  $("#fourDate").text(data.list[29].dt_txt);
+  $("#fourDate").text(data.list[29].dt_txt.substr(0, 10));
   $("#fourTemp").text(data.list[29].main.temp);
   $("#fourWind").text(data.list[29].wind.speed);
   $("#fourHumidity").text(data.list[29].main.humidity);
+
   // day 5
-  $("#fiveDate").text(data.list[37].dt_txt);
+  $("#fiveDate").text(data.list[37].dt_txt.substr(0, 10));
   $("#fiveTemp").text(data.list[37].main.temp);
   $("#fiveWind").text(data.list[37].wind.speed);
   $("#fiveHumidity").text(data.list[37].main.humidity);
 }
-
 
 function createButton(city) {
   // Generates buttons for each location in the array
@@ -78,8 +82,5 @@ function createButton(city) {
   // Adding the button to the buttons-view div
   $("#buttons-view").append(a);
 }
-
-
-
 
 // Click a previous search and the weather conditions will show
