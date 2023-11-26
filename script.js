@@ -12,6 +12,8 @@ $("#search-button").on("click", function (event) {
     "https://api.openweathermap.org/data/2.5/forecast?q=" +
     location +
     "&units=metric&appid=249c195c4f8adef1883d23b14c215681";
+  var queryURL =`https://api.openweathermap.org/data/2.5/forecast?q=${location}&units=metric&appid=249c195c4f8adef1883d23b14c215681`
+
   console.log(queryURL);
 
   fetch(queryURL)
@@ -34,9 +36,12 @@ $("#search-button").on("click", function (event) {
 function displayCurrent(data) {
   $("#currentName").text(data.city.name);
   $("#currentDate").text(data.list[0].dt_txt.substr(0, 10));
-  var iconCode = data.list[0].weather[0].icon;$('#currentIcon').attr('src', iconurl);
+  var iconCode = data.list[0].weather[0].icon;
   var iconurl = "http://openweathermap.org/img/wn/"+iconCode+"@2x.png";
-  $("currentIcon").attr("src", iconurl);
+  var img = $("<img/>");
+  img.attr("src", iconurl);
+  $("#currentImage").empty();
+  $("#currentImage").append(img);
   $("#currentTemp").text(data.list[0].main.temp);
   $("#currentHumidity").text(data.list[0].main.humidity);
   $("#currentWind").text(data.list[0].wind.speed);
@@ -47,7 +52,7 @@ function displayCurrent(data) {
   // show the future weather for the next 5 days
   // day 1
   $("#oneDate").text(data.list[5].dt_txt.substr(0, 10));
-  $("#oneTemp").text(data.list[5].main.temp);
+  $("#oneTemp").text("Temp" + data.list[5].main.temp);
   $("#oneWind").text(data.list[5].wind.speed);
   $("#oneHumidity").text(data.list[5].main.humidity);
 
@@ -87,15 +92,40 @@ function createButton(city) {
   a.text(city);
   // Adding the button to the buttons-view div
   $("#buttons-view").append(a);
+  a.on("click", handleSearchClick);
 }
 
 // Click a previous search and the weather conditions will show
 function handleSearchClick(e) {
-  if (!e.target.matches('btn-history')) {
-    return;
-  }
-
+  e.preventDefault();
+  // if (!e.target.matches('btn-history')) {
+  //   return;
+  // }
+console.log(e);
   var btn = e.target;
-  var search = btn.getAttribute('data-search');
-  displayCurrent(search)
+  var search = btn.textContent
+  console.log(search);
+  // displayCurrent(search)
+  
+    // construct the URL
+    var queryURL =
+      "https://api.openweathermap.org/data/2.5/forecast?q=" +
+      search +
+      "&units=metric&appid=249c195c4f8adef1883d23b14c215681";
+    console.log(queryURL);
+  
+    
+  fetch(queryURL)
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    console.log(data);
+    displayCurrent(data);
+    $("#search-input").text(JSON.stringify(data));
+  })
+  .catch(function (error) {
+    console.log(error);
+  });
 }
+
