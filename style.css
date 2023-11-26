@@ -1,0 +1,29 @@
+* { font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+h1 {
+    color:white;
+    background-color: blue;
+    text-align: center;
+}
+
+
+button {
+    
+    background-color: cornflowerblue;
+    margin-top: 10px;
+    font-size: medium;
+}
+
+#today {
+    border: solid;
+    padding-left: 10px;
+}
+
+#currentName {
+    font-size: 30px;
+}
+
+#fiveDay {
+    background-color: darkgrey;
+}

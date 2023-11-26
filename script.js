@@ -49,7 +49,7 @@ function displayCurrent(data) {
   $("#twoDate").text(data.list[13].dt_txt.substr(0, 10));
   $("#twoTemp").text(data.list[13].main.temp);
   $("#twoWind").text(data.list[13].wind.speed);
-  $("#oneHumidity").text(data.list[13].main.humidity);
+  $("#twoHumidity").text(data.list[13].main.humidity);
 
   // day 3
   $("#threeDate").text(data.list[21].dt_txt.substr(0, 10));
