@@ -30,13 +30,19 @@ $("#search-button").on("click", function (event) {
     });
 });
 
+
 function displayCurrent(data) {
   $("#currentName").text(data.city.name);
   $("#currentDate").text(data.list[0].dt_txt.substr(0, 10));
-  $("#currentIcon").text(data.list[0].weather[0].icon);
+  var iconCode = data.list[0].weather[0].icon;$('#currentIcon').attr('src', iconurl);
+  var iconurl = "http://openweathermap.org/img/wn/"+iconCode+"@2x.png";
+  $("currentIcon").attr("src", iconurl);
   $("#currentTemp").text(data.list[0].main.temp);
   $("#currentHumidity").text(data.list[0].main.humidity);
   $("#currentWind").text(data.list[0].wind.speed);
+
+ console.log(iconurl); 
+
 
   // show the future weather for the next 5 days
   // day 1
@@ -84,4 +90,12 @@ function createButton(city) {
 }
 
 // Click a previous search and the weather conditions will show
-$(document).on("click", "location-btn", displayCurrent);
+function handleSearchClick(e) {
+  if (!e.target.matches('btn-history')) {
+    return;
+  }
+
+  var btn = e.target;
+  var search = btn.getAttribute('data-search');
+  displayCurrent(search)
+}
