@@ -72,11 +72,11 @@ function displayCurrent(data) {
 
 function createButton(city) {
   // Generates buttons for each location in the array
+  city.preventDefault;
   var a = $("<button>");
   // Adding a class of location to the button
-  a.addClass("location");
+  a.addClass("location-btn");
   // Adding a data-attribute
-  // a.attr("location-name", location[i]);
   // Providing the initian button text
   a.text(city);
   // Adding the button to the buttons-view div
@@ -84,3 +84,4 @@ function createButton(city) {
 }
 
 // Click a previous search and the weather conditions will show
+$(document).on("click", "location-btn", displayCurrent);
