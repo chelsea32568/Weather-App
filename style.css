@@ -24,6 +24,28 @@ button {
     font-size: 30px;
 }
 
+/* Formats the 5-Day Forecast Section of the Page */
+#forecast {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
 #fiveDay {
-    background-color: darkgrey;
+    background-color: midnightblue;
+    color: whitesmoke;
+    padding: 5px;
+    align-items: center;
+    margin: 10px;
+    width: 100%;
+}
+
+#now {
+    display: flex;
+    justify-content: center;
+}
+
+#box {
+    padding: 5px;
+    width: 100%;
 }
