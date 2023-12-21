@@ -1,51 +1,50 @@
 # Weather-App
 A weather dashboard with form inputs
 
-
-https://stackoverflow.com/questions/44177417/how-to-display-openweathermap-weather-icon the icon image
-
-
-# Planner Application
-A calendar application that allows a user to save events for each hour of the day.
-
-Deployed App - https://chelsea32568.github.io/planner-app/ 
+# Weather Application
+A weather application that allows a user to see the weather outlook for multiple cities. 
+Deployed App - 
 
 ## Description
-This webpage contains a planner application. The aim was to create a planner application which stores user input to loca storage and informs the user of the current time based on a colour scheme with grey meaning the time has passed, red being the current time and green being the time left for the day. Throughout this project, I have developed an understanding of local storage and how dayjs can be used. I also developed my knowledge and understanidng of how to use bootstrap to format a web application. 
+When a user searches for a city they are presented with current and future conditions for that city and that city is added to the search history. 
+
+When a user views the current weather conditions for that city they can see the city name, date, icon representation of the weather, temperature, humidity and wind speed. 
+
+When a user clicks on a city in the search history, they are again presented with current and future conditions for that city. 
+
+Through the project, I have developed my understanding of local storage, API keys, CSS, JS and HTML. 
+
+For future development, I would like to change how the application looks when the user initally opens the page. I would also like to prevent the user from being able to store multiple buttons of the same location (e.g. if Moscow is searched for twice, the button should not replicate.)
 
 ## Installation
 
-To work on this code copy this SSH key: git@github.com:chelsea32568/planner-app.git and paste into your desired folder using Git Bash. Then use git pull to pull the file into your local repository. Make necessary changes and then add changes into the git repository by using git add -A, git commit -m "", git push.
+To work on this code copy this SSH key: git@github.com:chelsea32568/Weather-App.git and paste into your desired folder using Git Bash. Then use git pull to pull the file into your local repository. Make necessary changes and then add changes into the git repository by using git add -A, git commit -m "", git push.
 
 ## Usage
 
-![Image of Planner Application webpage](./assets/img/initialPage.JPG)
+![Image of 'Weather Application'](./assets/img/start.JPG)
 
-After opening the HTML file the Planner Application appears.
+After opening the HTML file the 'Weather Application appears'
 
-![Image colour indicating the time. Grey shows time has passed, red shows the present time and green shows the future time.](./assets/img/timeColour.JPG)
+![Image colour indicating the time. Grey shows time has passed, red shows the present time and green shows the future time.](./assets/img/intialPage.JPG)
 
-The colours indicate the time for the user
+When a user has searched for a location, they are presented with the current and future information. 
 
-!['Wake Up' message saved to local storage on the application'](./assets/img/localStore.JPG)
+!['Wake Up' message saved to local storage on the application'](./assets/img/local.JPG)
 
-Users can log information and press save to save the text to local storage. This is then retreived even if the application is closed and reopened. 
+Their searches are saved to local storage and can be clicked to present the current and future data again. 
 
-![The top of the planner application showing the current date and day](./assets/img/now.JPG)
+![The top of the planner application showing the current date and day](./assets/img/multi.JPG)
 
-The top of the planner application is updated with the current day and date using day js.
+Previous searches can be clicked. 
 
 ## Credits
 
- how to change the color with the time
+- [How to display the icon image](https://stackoverflow.com/questions/44177417/how-to-display-openweathermap-weather-icon)
 
-- [How to find the hour on dayjs](https://day.js.org/docs/en/get-set/get-set)
-
-- [How to change the colour based on the current time](https://stackoverflow.com/questions/59995703/trying-to-change-background-color-based-off-if-the-hour-is-in-the-past-current)
+- [How to align items in a flex box](https://www.youtube.com/watch?v=Q1d-1FzdXEE)
 
 - [Save text to loca storage] Sean New - Online Tutoring Service
-
-- [Help with the page layout] https://github.com/jtbataille/Day-to-Day-Planner.git
 
 ## License
 
